@@ -10,6 +10,10 @@ Vagrant.configure("2") do |config|
     vb.cpus = 2
   end
 
+  config.vm.define "db" do |db|
+    db.vm.box = "postgresql"
+  end
+
   config.vm.provision "shell", inline <<-SHELL
     apt-get update
     apt-get install -y vim git
